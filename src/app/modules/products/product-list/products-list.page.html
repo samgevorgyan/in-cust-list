@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Inbox </ion-title>
+    <ion-row class="menu_search_row">
+      <ion-input [formControl]="searchControl" autocomplete="on"></ion-input>
+      <ion-buttons>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-buttons>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
@@ -15,10 +20,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    <incust-product
-      *ngFor="let product of $products | async"
-      [product]="product"
-    ></incust-product>
-  </ion-list>
+    <ion-list>
+      <incust-product
+        *ngFor="let product of ($products | async) | searchByName: (searchItem$ | async) "
+        [product]="product"
+      ></incust-product>
+    </ion-list>
+
 </ion-content>

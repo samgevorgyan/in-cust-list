@@ -1,0 +1,25 @@
+<ion-item
+  *ngIf="product"
+  [routerLink]="'/product/' + product.description"
+  [detail]="false"
+>
+  <div slot="start" [class]="!product.upc ? 'dot dot-unread' : 'dot'"></div>
+  <ion-label class="ion-text-wrap">
+    <h2>
+      {{ product.name }}
+      <span class="date">
+        <ion-note>{{ product.manufacturer }}</ion-note>
+        <ion-icon
+          name="chevron-forward"
+          size="small"
+          *ngIf="isIos()"
+        ></ion-icon>
+      </span>
+    </h2>
+    <h3>{{ product.sku }}</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    </p>
+  </ion-label>
+</ion-item>

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProductsListPage } from './products-list.page';
 import { ProductsListRoutingModule } from './product-list-routing.module';
-import { ProductComponentModule} from '../product/product.module';
+import { ProductComponentModule } from '../product/product.module';
+import { SearchByNamePipe } from '../../../shared/pipes/search-by-name.pipe';
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   imports: [
@@ -13,8 +15,11 @@ import { ProductComponentModule} from '../product/product.module';
     FormsModule,
     IonicModule,
     ProductComponentModule,
-    ProductsListRoutingModule
+    ProductsListRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ScrollingModule
   ],
-  declarations: [ProductsListPage]
+  declarations: [ProductsListPage, SearchByNamePipe],
 })
 export class ProductsListModule {}
