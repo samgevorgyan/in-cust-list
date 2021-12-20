@@ -1,0 +1,8 @@
+{
+  "name": "inCustList",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "ca4f0dfb"
+}
