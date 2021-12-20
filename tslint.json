@@ -74,15 +74,15 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "incust",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "incust",
       "page",
-      "kebab-case"
+      "camelCase"
     ]
   }
 }
