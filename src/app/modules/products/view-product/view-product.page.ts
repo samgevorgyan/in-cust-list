@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService} from '../services/products.service';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'incust-view-product',
@@ -8,14 +8,12 @@ import { ProductsService} from '../services/products.service';
   styleUrls: ['./view-product.page.scss'],
 })
 export class ViewProductPage implements OnInit {
-
   constructor(
     private productsService: ProductsService,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getBackButtonText() {
     const win = window as any;
