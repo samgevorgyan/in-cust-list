@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from '../products.service';
+import { ProductInterface } from '../models/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'incust-view-product',
-  templateUrl: './view-product.page.html',
-  styleUrls: ['./view-product.page.scss'],
+    selector: 'incust-view-product',
+    templateUrl: './view-product.page.html',
+    styleUrls: ['./view-product.page.scss']
 })
 export class ViewProductPage implements OnInit {
-  constructor(
-    private productsService: ProductsService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    product: ProductInterface;
+    constructor(private router: Router) {
+        this.product = this.router.getCurrentNavigation().extras.state as ProductInterface;
+    }
 
-  ngOnInit() {}
+    ngOnInit() {}
 
-  getBackButtonText() {
-    const win = window as any;
-    const mode = win && win.Ionic && win.Ionic.mode;
-    return mode === 'ios' ? 'Inbox' : '';
-  }
+    getBackButtonText() {
+        const win = window as any;
+        const mode = win && win.Ionic && win.Ionic.mode;
+        return mode === 'ios' ? 'Inbox' : '';
+    }
 }

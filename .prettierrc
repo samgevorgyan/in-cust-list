@@ -1,0 +1,17 @@
+{
+    "tabWidth": 4,
+    "singleQuote": true,
+    "bracketSameLine": false,
+    "arrowParens": "avoid",
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "printWidth": 100,
+    "overrides": [
+        {
+            "files": ["*.html"],
+            "options": {
+                "printWidth": 120
+            }
+        }
+    ]
+}
