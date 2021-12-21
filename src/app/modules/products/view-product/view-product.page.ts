@@ -78,6 +78,7 @@ export class ViewProductPage implements OnInit, OnDestroy {
      * */
 
     setQuantity(value) {
+        // const value = event.target.value;
         if (value) {
             this.quantity.setValue(value / this.product.price);
         } else {
@@ -85,7 +86,12 @@ export class ViewProductPage implements OnInit, OnDestroy {
         }
     }
     setAmount(value) {
-        this.amount.setValue(value * this.product.price);
+        // const value = event.target.value;
+        if (value) {
+            this.amount.setValue(value * this.product.price);
+        } else {
+            this.amount.reset();
+        }
     }
     setAmountByClick(amount) {
         this.amount.setValue(amount);

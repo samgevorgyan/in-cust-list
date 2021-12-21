@@ -36,7 +36,7 @@
                         <ion-label>Amount,$</ion-label>
                         <ion-input
                             type="number"
-                            (keydown)="setQuantity(amount.value)"
+                            (keyup)="setQuantity(amount.value)"
                             formControlName="amount"
                         ></ion-input>
                     </ion-col>
@@ -44,7 +44,7 @@
                         <ion-label>Quantity</ion-label>
                         <ion-input
                             type="number"
-                            (keydown)="setAmount(quantity.value)"
+                            (keyup)="setAmount(quantity.value)"
                             formControlName="quantity"
                         ></ion-input>
                     </ion-col>
