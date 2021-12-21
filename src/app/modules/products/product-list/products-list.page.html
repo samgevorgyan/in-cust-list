@@ -1,35 +1,26 @@
-<ion-header [translucent]="true">
+<ion-header translucent>
     <ion-toolbar>
-        <ion-row class="menu_search_row">
-            <ion-input [formControl]="searchControl" autocomplete="on"></ion-input>
-            <ion-buttons>
-                <ion-icon name="search-outline"></ion-icon>
-            </ion-buttons>
-        </ion-row>
+        <ion-title>Searchbar</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-searchbar [formControl]="searchControl" autocomplete="on"></ion-searchbar>
     </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
     <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large"> Inbox </ion-title>
-        </ion-toolbar>
-    </ion-header>
-
     <cdk-virtual-scroll-viewport
         #virtualViewPort
-        [itemSize]="87"
+        [itemSize]="69"
         class="product_list"
         maxBufferPx="3000"
         minBufferPx="600"
     >
         <ion-list>
             <incust-product
-                *cdkVirtualFor="let product of ($products | async) | searchByName: (searchItem$ | async); templateCacheSize: 0 "
+                *cdkVirtualFor="let product of (products$ | async) | searchByName: (searchItem$ | async)"
                 [product]="product"
             ></incust-product>
         </ion-list>

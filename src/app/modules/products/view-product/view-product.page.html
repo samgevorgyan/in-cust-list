@@ -1,27 +1,55 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+            <ion-back-button defaultHref="/"></ion-back-button>
         </ion-buttons>
+        <ion-title> Product </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" *ngIf="product">
-    <ion-item>
-        <ion-icon name="person-circle" color="primary"></ion-icon>
-        <ion-label class="ion-text-wrap">
-            <h2>
-                {{ product.name }}
-                <span class="date">
-                    <ion-note>{{ product.sku }}</ion-note>
-                </span>
-            </h2>
-            <h3>To: <ion-note>Me</ion-note></h3>
-        </ion-label>
-    </ion-item>
-
-    <div class="ion-padding">
-        <h1>{{ product.name }}</h1>
-        <p>{{ product.description }}</p>
-    </div>
+    <ion-card>
+        <img [src]="product.image" />
+        <ion-card-header>
+            <ion-card-subtitle>{{product.manufacturer}}</ion-card-subtitle>
+            <ion-card-title>{{product.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>{{product.description}}</p>
+            <ion-text color="primary" (click)="openInAppBrowser(product.url)"> visit to wep page</ion-text>
+            <h2>Price - ${{product.price}}</h2>
+        </ion-card-content>
+        <ion-grid>
+            <ion-row class="buttons-row">
+                <ion-buttons>
+                    <ion-button (click)="setAmountByClick(100)">$100</ion-button>
+                    <ion-button (click)="setAmountByClick(10)">$10</ion-button>
+                </ion-buttons>
+                <ion-buttons>
+                    <ion-button (click)="setQuantityByClick(48)">2.29 qty</ion-button>
+                    <ion-button (click)="setQuantityByClick(9)">9 qty</ion-button>
+                </ion-buttons>
+            </ion-row>
+            <form [formGroup]="amountQtyForm">
+                <ion-row class="inputs-row">
+                    <ion-col size="6">
+                        <ion-label>Amount,$</ion-label>
+                        <ion-input
+                            type="number"
+                            (keydown)="setQuantity(amount.value)"
+                            formControlName="amount"
+                        ></ion-input>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-label>Quantity</ion-label>
+                        <ion-input
+                            type="number"
+                            (keydown)="setAmount(quantity.value)"
+                            formControlName="quantity"
+                        ></ion-input>
+                    </ion-col>
+                </ion-row>
+            </form>
+        </ion-grid>
+    </ion-card>
 </ion-content>

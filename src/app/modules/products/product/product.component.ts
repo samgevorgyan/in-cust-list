@@ -14,6 +14,13 @@ export class ProductComponent implements OnInit {
 
     ngOnInit() {}
     gotoProduct() {
+        /*
+         * here we can also use ion-nav because this is just an information page.
+         *
+         * I used routing in order  to show that can use that :)
+         *
+         * */
+
         this.router.navigateByUrl('product/' + this.product.sku, { state: this.product });
     }
 }
